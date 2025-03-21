@@ -2,20 +2,44 @@
 
 using namespace std;
 
-int main(){
+// Using the while loop, count the total digits in a number
+
+// int main()
+// {
+//    int num, tot=0;
+
+//    cout<<"Enter the Number: ";
+//    cin>>num;
+
+//    while(num>0)
+//    {
+//       tot++;
+//       num = num/10;
+//    }
+//    cout<<"Total Digits = "<<tot;
+//    cout<<endl;
+
+//    return 0;
+// }
 
 
-    int i = 1285; 
 
-    int num_digit = 0;
+// Count Digits in a Number using the for Loop
 
-    while(i>0)
+int main()
+{
+   int num, tot;
+
+   cout<<"Enter the Number: ";
+   cin>>num;
+
+   for(tot=0; num>0; tot++)
     {
-        i = i/10; 
-
-        num_digit++;
+        num = num/10; 
     }
-    cout << num_digit <<endl;
-
-    return 0;
+    cout<<"Total Digits = "<<tot;
+    cout<<endl;
+   
+   
+   return 0;
 }
