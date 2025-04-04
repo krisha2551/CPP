@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// Function  (UDFs)
+// Function (UDFs)
 
 void add(){
     int num1, num2;
@@ -21,6 +21,7 @@ void subtract(){
     cin >> num2;
     cout << "Subtraction of " << num1 << " and " << num2 << " is " << num1 - num2 << endl;
 }
+
 void multiply(){
     int num1, num2;
     cout << "\nEnter the first number: ";
@@ -29,6 +30,7 @@ void multiply(){
     cin >> num2;
     cout << "Multiplication of " << num1 << " and " << num2 << " is " << num1 * num2 << endl;
 }
+
 void divide(){
     int num1, num2;
     cout << "\nEnter the first number: ";
@@ -37,6 +39,7 @@ void divide(){
     cin >> num2;
     cout << "Division of " << num1 << " and " << num2 << " is " << num1 / num2 << endl;
 }
+
 void modulo(){
     int num1, num2;
     cout << "\nEnter the first number: ";
@@ -62,7 +65,6 @@ int main() {
         cin >> choice;
 
 
-       
         switch (choice) {
             case 1:
                  add();
