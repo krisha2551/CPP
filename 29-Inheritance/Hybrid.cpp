@@ -1,37 +1,46 @@
 #include <iostream>
 using namespace std;
 
-class Vehicle {
+// Base class
+class Animal {
 public:
-    Vehicle() {
-        cout << "This is a Vehicle"<< endl;
+    void eat() {
+        cout << "Animal eats food." << endl;
     }
 };
 
-class Rent {
+// Derived class 1
+class LandAnimal : public Animal {
 public:
-    Rent() {
-        cout << "Rent of Vehicle"<< endl;
+    void walk() {
+        cout << "LandAnimal walks." << endl;
     }
 };
 
-class Car : public Vehicle {
-  public:
-  Car() {
-      cout << "This Vehical is a Car"<< endl;
-  }
+// Derived class 2
+class Bird : public Animal {
+public:
+    void fly() {
+        cout << "Bird flies." << endl;
+    }
 };
 
-class Bus : public Vehicle, public Rent {
-  public:
-  Bus() {
-      cout << "This Vehicle is a Bus with Rent";
-  }
+// Derived class from both LandAnimal and Bird 
+class Bat : public LandAnimal, public Bird {
+public:
+    void sound() {
+        cout << "Bat makes sound." << endl;
+    }
 };
 
 int main() {
-    
-   Bus obj2;
+    Bat myBat;
+
+    myBat.LandAnimal::eat();  // or myBat.Bird::eat();
+    myBat.walk();         // From LandAnimal
+    myBat.fly();          // From Bird
+    myBat.sound();        // From Bat
 
     return 0;
 }
+

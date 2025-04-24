@@ -1,31 +1,42 @@
 #include <iostream>
 using namespace std;
 
-class Vehicle {
+// base class
+class Animal {
 public:
-    Vehicle() {
-        cout << "This is a Vehicle"<< endl;
+    void info() {
+        cout << "I am an animal." << endl;
     }
 };
 
-class Car : public Vehicle {
+// derived class 1
+class Dog : public Animal {
 public:
-    Car() {
-        cout << "This Vehicle is Car"<< endl;
+    void bark() {
+        cout << "I am a Dog. Woof woof." << endl;
     }
 };
 
-class Bus : public Vehicle {
+// derived class 2
+class Cat : public Animal {
 public:
-    Bus() {
-        cout << "This Vehicle is Bus"<< endl;
+    void meow() {
+        cout << "I am a Cat. Meow." << endl;
     }
 };
 
 int main() {
-    
-    Car obj1;
-    Bus obj2;
+    // create object of Dog class
+    Dog dog1;
+    cout << "Dog Class:" << endl;
+    dog1.info();  // parent Class function
+    dog1.bark();
+
+    // create object of Cat class
+    Cat cat1;
+    cout << "\nCat Class:" << endl;
+    cat1.info();  // parent Class function
+    cat1.meow();
 
     return 0;
 }
