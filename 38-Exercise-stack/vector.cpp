@@ -45,7 +45,7 @@ public:
     }
 
     void display() {
-        for (int i = arr.size() - 1; i >= 0; --i) {
+        for (int i = arr.size() - 1; i >= 0; i--) {
             cout << "| " << arr[i] << " |" << endl;
         }
     }
@@ -101,10 +101,10 @@ int main(){
                 st.size1();
                 break;
             case 8:
-                cout << "Exiting program...\n";
+                cout << "Exiting program..." << endl;
                 break;
             default:
-                cout << "Invalid choice...!\n";
+                cout << "Invalid choice...!" << endl;
                 break;
         }
     }
