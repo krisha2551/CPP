@@ -1,88 +1,55 @@
 #include<iostream>
-#include<string>
+#include<string.h>
 #include<vector>
 
 using namespace std;
 
-// Template class for Student
-template<typename T>
+
+
+
+
+   
 
 class Student{
     public:
-    T id;
+    int id;
     string name;
 
     // Constructor
-    Student(T id, string name){
+    Student(int id, string name){
         this->id = id;
         this->name = name;
     }
 
-    // Method to display student info
-     void display() {
-        cout << "ID: " << id << ", Name: " << name << endl;
+};
+
+
+class Studentlist{
+    public:
+     vector<Student> list;
+
+     void addStudent(int id ,string name){
+        Student std( id , name);
+        list.push_back(std);
+     }
+
+        void display() {
+      for(Student s: list){
+          cout << "ID: " << s.id << ", Name: " << s.name << endl;
+      }
     }
 };
 
-    // Vector to store students
-    vector<Student<int>> list;
 
-    
-    // Add a student
-    void addStudent() {
-    int id;
-    string name;
-    cout << "Enter ID: ";
-    cin >> id;
-    cout << "Enter Name: ";
-    cin >> name; 
-    list.push_back(Student<int>(id, name));
-    cout << "Student added successfully." << endl;
-}
 
-    // Display all students
-    void displayStudents() {
-    cout << endl << "--- Student List ---" << endl;
-    for (int s : list) {
-        s.display();
-    }
-}
-
-    // Remove a student 
-    void removeStudentId() {
-    int id;
-    cout << "Enter ID to remove: ";
-    cin >> id;
-    for ( ) {
-        if ( ) {
-            list.erase();
-            cout << "Student removed successfully." << endl;
-            return;
-        }
-    }
-    cout << "Student not found." << endl;
-}
-
-    // Search for a student 
-    void searchStudentId() {
-    int id;
-    cout << "Enter ID to search: ";
-    cin >> id;
-    for (int s : list) {
-        if ( ) {
-            cout << "Student found: ";
-            s.display();
-            return;
-        }
-    }
-    cout << "Student not found." << endl;
-}
 
 int main(){
 
-    int choice;
+    Studentlist list;
+    int choice, id;
+    string naam;
 
-    do{
+    while(choice != 0){
         cout << endl << "--- Student Management System ---" << endl;
         cout << "1. Add Student" << endl;
         cout << "2. Display All Students" << endl ;
@@ -93,26 +60,31 @@ int main(){
         cout << "Enter your choice: ";
         cin >> choice;
 
-        switch (choice) {
-            case 1: 
-                    addStudent(); 
+        switch(choice){
+            case 1:             
+                    cout << "Enter ID: ";
+                    cin >> id;
+                    cout << "Enter Name: ";
+                    cin >> naam;
+                    list.addStudent(id, naam); 
             break;
             case 2: 
-                    displayStudents(); 
+                    list.display(); 
             break;
-            case 3: 
-                   removeStudentId(); 
-            break;
-            case 4: 
-                    searchStudentId(); 
-            break;
+            // case 3: 
+            //        removeStudentId(); 
+            // break;
+            // case 4: 
+            //         searchStudentId(); 
+            // break;
             case 5: 
                     cout << "Exiting program." << endl; 
             break;
             default: 
                     cout << "Invalid choice. Please try again." << endl;
+            break;
         }
-    }while (choice != 5);
+    }
    
     return 0;
 }
