@@ -29,11 +29,18 @@ class Studentlist{
     public:
     vector<Student> list;
 
-    // Add a student
-    void addStudent(int id ,string name){
-        Student std( id , name);
+
+    void addStudent() {
+        int id;
+        string name;
+        cout << "Enter ID: ";
+        cin >> id;
+        cout << "Enter Name: ";
+        cin >> name; 
+        Student std(id ,name);
         list.push_back(std);
-     }
+        cout << "Student added successfully." << endl;
+}
 
 
     // Display all students
@@ -45,29 +52,34 @@ class Studentlist{
 }
 
     // Remove a student 
-    void removeStudentId(int id) {
+    void removeStudentId() {
+    int id;
     cout << "Enter ID to remove: ";
     cin >> id;
-    for (Student s : list ) {
-        if (s.id == id ) {
-            list.erase();
+   for (int i = 0; i < list.size(); i++) {
+        if (list[i].id == id) {
+            list.erase(list.begin() + i);
             cout << "Student removed successfully." << endl;
+             return;
         }
-    }
+    } 
     cout << "Student not found." << endl;
 }
 
     // Search for a student 
-    void searchStudentId(int id) {
+    void searchStudentId() {
+    int id;    
     cout << "Enter ID to search: ";
     cin >> id;
     for (Student s : list) {
         if (s.id == id ) {
             cout << "Student found: ";
         }
+        return;
     }
     cout << "Student not found." << endl;
 }
+
 };
 
 
@@ -76,8 +88,8 @@ class Studentlist{
 int main(){
 
     Studentlist list;
-    int choice, id;
-    string name;
+    int choice;
+    
 
     while(choice != 0){
         cout << endl << "--- Student Management System ---" << endl;
@@ -92,23 +104,17 @@ int main(){
 
         switch(choice){
             case 1:             
-                    cout << "Enter ID: ";
-                    cin >> id;
-                    cout << "Enter Name: ";
-                    cin >> name;
-                    list.addStudent(id, name); 
+                  list.addStudent(); 
             break;
             case 2: 
                     list.displayStudents(); 
             break;
-            // case 3: 
-            //         cout << "Enter ID to remove: ";
-            //         cin >> id;
-            //         list.removeStudentId(); 
-            //  break;
+            case 3: 
+                    list.removeStudentId(); 
+             break;
             case 4: 
                 
-                   list.searchStudentId(id); 
+                   list.searchStudentId(); 
             break;
             case 5: 
                     cout << "Exiting program." << endl; 
