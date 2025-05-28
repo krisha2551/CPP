@@ -183,7 +183,7 @@ int main() {
                 cout << "Enter number of elements: ";
                 cin >> n;
                 cout << "Enter elements: ";
-                for (int i = 0; i < n; ++i) {
+                for (int i = 0; i < n; i++) {
                     cin >> x;
                     arr.push_back(x);
                 }
