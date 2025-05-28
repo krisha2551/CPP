@@ -133,35 +133,102 @@ int main() {
     int choice;
 
     while(choice != 5) {
-        cout << "\n--- MENU ---\n";
-        cout << "1. Selection Sort\n";
-        cout << "2. Merge Sort\n";
-        cout << "3. Linear Search\n";
-        cout << "4. Binary Search (on sorted array)\n";
-        cout << "5. Exit\n";
+        cout << endl << "--- MENU ---" << endl;
+        cout << "1. Selection Sort" << endl;
+        cout << "2. Merge Sort" << endl;
+        cout << "3. Linear Search" << endl;
+        cout << "4. Binary Search" << endl;
+        cout << "5. Exit" << endl;
 
         cout << "Enter your choice: ";
         cin >> choice;
 
-        
+        vector<int> arr;
+        int n, x ;
 
         switch(choice) {
-            case 1:
-               
+               case 1: {
+                cout << "Enter number of elements: ";
+                cin >> n;
+                cout << "Enter elements: ";
+                for (int i = 0; i < n; i++) 
+                {
+                    cin >> n;
+                    arr.push_back(n);
+                }
+
+                selectionSort(arr);
+                cout << "Sorted array (Selection Sort): ";
+                printArray(arr);
                 break;
-            case 2:
-                
+            }
+
+            case 2: {
+                cout << "Enter number of elements: ";
+                cin >> n;
+                cout << "Enter elements: ";
+                for (int i = 0; i < n; i++) 
+                {
+                    cin >> n;
+                    arr.push_back(n);
+                }
+
+                merge_sort(arr, 0, n - 1);
+                cout << "Sorted array (Merge Sort): ";
+                printArray(arr);
                 break;
-            case 3:
-                
+            }
+
+            case 3: {
+                cout << "Enter number of elements: ";
+                cin >> n;
+                cout << "Enter elements: ";
+                for (int i = 0; i < n; ++i) {
+                    cin >> x;
+                    arr.push_back(x);
+                }
+
+                cout << "Enter value to search: ";
+                cin >> x;
+
+                int index = linearSearch(arr, x);
+                if (index != -1)
+                    cout << "Element found at index: " << index << endl;
+                else
+                    cout << "Element not found." << endl;
                 break;
-            case 4:
-              
+            }
+
+            case 4: {
+                cout << "Enter number of elements: ";
+                cin >> n;
+                cout << "Enter sorted elements: ";
+                for (int i = 0; i < n; i++) 
+                {
+                    cin >> x;
+                    arr.push_back(x);
+                }
+
+                cout << "Enter value to search: ";
+                cin >> x;
+
+                int index = binarySearch(arr, x);
+
+                if (index != -1){
+                    cout << "Element found at index: " << index << endl;
+                }
+                else{
+                    cout << "Element not found." << endl;
+                }
+                  
+                break;
+            }
+
             case 5:
-                cout << "Exiting...\n";
+                cout << "Exiting..." << endl;
                 break;
             default:
-                cout << "Invalid choice. Try again.\n";
+                cout << "Invalid choice. Try again." << endl;
         }
     }
 
