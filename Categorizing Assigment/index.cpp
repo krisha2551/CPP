@@ -153,8 +153,8 @@ int main() {
                 cout << "Enter elements: ";
                 for (int i = 0; i < n; i++) 
                 {
-                    cin >> n;
-                    arr.push_back(n);
+                    cin >> x;
+                    arr.push_back(x);
                 }
 
                 selectionSort(arr);
@@ -169,8 +169,8 @@ int main() {
                 cout << "Enter elements: ";
                 for (int i = 0; i < n; i++) 
                 {
-                    cin >> n;
-                    arr.push_back(n);
+                    cin >> x;
+                    arr.push_back(x);
                 }
 
                 merge_sort(arr, 0, n - 1);
