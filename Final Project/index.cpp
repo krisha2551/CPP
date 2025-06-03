@@ -112,14 +112,13 @@ int part(vector<int> &arr, int low, int high)
         int last = arr[high];
         int i = low-1;
 
-        for(int j=low; j<high; j++) // 0
+        for(int j=low; j<high; j++) 
         {
             if(arr[j] < last)
             {
                 i++;
 
                 swap(arr[i], arr[j]);
-
             }
         }
 
@@ -136,6 +135,7 @@ void quick_sort(vector<int> &arr, int low, int high){
     int p = part(arr, low, high);
 
         quick_sort(arr, low, p-1);
+
         quick_sort(arr, p+1, high);
     }
 
@@ -171,7 +171,7 @@ int binary_search(int arr[],int low, int high, int search)
 // ---------------- Menu Driven Program ----------------
 int main() {
     LinkedList list;
-    vector<int> array;
+    vector<int> arr;
     int choice;
 
     while (choice != 0) {
@@ -195,15 +195,38 @@ int main() {
             list.addNode(ele);
             break;
         }
+
         case 2:
             list.display();
             break;
+
         case 3: {
-            
+           int n, ele;
+            arr.clear();
+            cout << "Enter number of elements: ";
+            cin >> n;
+            cout << "Enter elements:\n";
+            for (int i = 0; i < n; i++) {
+                cin >> ele;
+                arr.push_back(ele);
+            }
             break;
         }
+
         case 4:
-           
+             if (arr.size() > 0) 
+            {
+                merge_sort(arr, 0, arr.size() - 1);
+                cout << "Array after Merge Sort: ";
+                for (int x : arr) 
+                {
+                    cout << x << " " << endl;
+                }
+            } 
+            else 
+            {
+                cout << "Array is empty." << endl;
+            }
             break;
         case 5:
            
