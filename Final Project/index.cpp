@@ -169,7 +169,8 @@ int binary_search(int arr[],int low, int high, int search)
 }
 
 // ---------------- Menu Driven Program ----------------
-int main() {
+int main() 
+{
     LinkedList list;
     vector<int> arr;
     int choice;
@@ -201,12 +202,12 @@ int main() {
             break;
 
         case 3: {
-           int n, ele;
-            arr.clear();
+            int n, ele;
             cout << "Enter number of elements: ";
             cin >> n;
-            cout << "Enter elements:\n";
-            for (int i = 0; i < n; i++) {
+            cout << "Enter elements:" << endl;
+            for (int i = 0; i < n; i++) 
+            {
                 cin >> ele;
                 arr.push_back(ele);
             }
@@ -228,13 +229,41 @@ int main() {
                 cout << "Array is empty." << endl;
             }
             break;
+
         case 5:
-           
+        if (arr.size() > 0)
+         {
+            quick_sort(arr, 0, arr.size() - 1);
+            cout << "Array after Quick Sort: ";
+            for (int x : arr) 
+            {
+                cout << x << " " << endl;
+            }
+            }
+            else {
+                cout << "Array is empty." << endl;
+            }
             break;
+
         case 6: {
-           
+             if (arr.size() > 0) 
+             {
+                int search;
+
+                cout << "Enter number to search: ";
+                cin >> search;
+
+                int find = binary_search(arr.data(), 0, arr.size() - 1, search);
+
+                if (find > 0){
+                    cout << "Found at index " << find << endl;
+                }
+                else{
+                   cout << "Not found." << endl; 
+                }
+            } 
             break;
-        }
+
         case 7:
             cout << "Exiting...\n";
             break;
@@ -243,7 +272,7 @@ int main() {
         }
 
     } 
-
+    }
     return 0;
 }
 
